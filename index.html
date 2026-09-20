@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Earshot — live captions</title>
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#171E21" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Earshot">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#F1F3F2; --surface:#FFFFFF; --surface-2:#E9EDEB;
+    --ink:#131C19; --ink-soft:#5B6A64; --line:#D8DFDB;
+    --live:#0B6E77; --live-soft:#E1F0F1; --danger:#9C3A2A; --danger-soft:#F6E7E3;
+    --ts: 30px;
+    box-sizing: border-box;
+    height: 100%;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg:#0F1417; --surface:#171E21; --surface-2:#1E272B;
+      --ink:#E9EFEC; --ink-soft:#93A39D; --line:#273236;
+      --live:#5BC8D2; --live-soft:#14272B; --danger:#E08472; --danger-soft:#2C1C19;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg:#0F1417; --surface:#171E21; --surface-2:#1E272B;
+    --ink:#E9EFEC; --ink-soft:#93A39D; --line:#273236;
+    --live:#5BC8D2; --live-soft:#14272B; --danger:#E08472; --danger-soft:#2C1C19;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+
+  body {
+    margin: 0; height: 100%;
+    display: flex; flex-direction: column;
+    background: var(--bg); color: var(--ink);
+    font-family: "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  button { font: inherit; color: inherit; cursor: pointer; }
+  :focus-visible { outline: 3px solid var(--live); outline-offset: 2px; border-radius: 4px; }
+
+  /* ---------- header ---------- */
+  header {
+    flex: 0 0 auto;
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 14px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+  }
+  .status { display: flex; align-items: center; gap: 9px; min-width: 0; flex: 1; }
+  .dot { width: 13px; height: 13px; border-radius: 50%; background: var(--line); flex: 0 0 auto; }
+  .listening .dot { background: var(--live); }
+  .hearing .dot { animation: pulse 1s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { transform: scale(1); opacity: 1 } 50% { transform: scale(1.5); opacity: .55 } }
+  @media (prefers-reduced-motion: reduce) { .hearing .dot { animation: none; box-shadow: 0 0 0 5px var(--live-soft) } }
+  .status-text { font-size: 16px; color: var(--ink-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .listening .status-text { color: var(--live); font-weight: 700; }
+
+  .tool {
+    background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px;
+    min-width: 42px; height: 40px; padding: 0 10px;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .tool:hover { border-color: var(--ink-soft); }
+  .tool.a-minus { font-size: 14px; font-weight: 700; }
+  .tool.a-plus { font-size: 21px; font-weight: 700; }
+
+  /* ---------- settings ---------- */
+  .settings {
+    flex: 0 0 auto; display: none;
+    padding: 14px; gap: 14px; flex-wrap: wrap; align-items: flex-end;
+    background: var(--surface-2); border-bottom: 1px solid var(--line);
+  }
+  .settings.open { display: flex; }
+  .field { display: flex; flex-direction: column; gap: 5px; }
+  .field span { font-size: 13px; color: var(--ink-soft); }
+  select {
+    font: inherit; font-size: 15px; padding: 9px 10px; border-radius: 9px;
+    border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+  }
+
+  /* ---------- transcript ---------- */
+  main { flex: 1 1 auto; overflow-y: auto; overflow-x: hidden; position: relative; -webkit-overflow-scrolling: touch; }
+  .page { max-width: 44rem; margin: 0 auto; padding: 22px 18px 34px; }
+
+  .block {
+    font-size: var(--ts); line-height: 1.45; margin: 0 0 0.85em;
+    max-width: 34em; overflow-wrap: break-word;
+  }
+  .block .time {
+    display: block; font-size: 13px; line-height: 1.4; color: var(--ink-soft);
+    margin-bottom: 2px; font-weight: 400;
+  }
+  .live {
+    font-size: var(--ts); line-height: 1.45; color: var(--live);
+    border-left: 4px solid var(--live); padding-left: 12px; margin: 0;
+    max-width: 34em; overflow-wrap: break-word; min-height: 1.45em;
+  }
+
+  .empty { max-width: 30rem; }
+  .empty h1 { font-size: 27px; line-height: 1.25; margin: 6px 0 12px; font-weight: 700; }
+  .empty p { font-size: 18px; line-height: 1.55; color: var(--ink-soft); margin: 0 0 12px; }
+
+  .notice {
+    border-left: 4px solid var(--danger); background: var(--danger-soft);
+    padding: 14px 16px; border-radius: 0 10px 10px 0; margin: 0 0 18px;
+    font-size: 17px; line-height: 1.5; max-width: 34em;
+  }
+  .notice strong { display: block; margin-bottom: 4px; }
+
+  .jump {
+    position: sticky; bottom: 8px; float: right; margin-right: 4px;
+    background: var(--live); color: var(--surface); border: none;
+    border-radius: 999px; padding: 10px 18px; font-size: 15px; font-weight: 700;
+    box-shadow: 0 4px 14px rgba(0,0,0,.22); display: none;
+  }
+  .jump.show { display: block; }
+
+  /* ---------- review + saved ---------- */
+  h2 { font-size: 22px; margin: 0 0 4px; }
+  .meta { font-size: 15px; color: var(--ink-soft); margin: 0 0 20px; }
+
+  .saved-item {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    padding: 14px 16px; margin-bottom: 12px; max-width: 34em;
+  }
+  .saved-item h3 { font-size: 17px; margin: 0 0 4px; }
+  .saved-item .snip { font-size: 16px; color: var(--ink-soft); line-height: 1.5; margin: 0 0 10px; }
+  .saved-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .mini {
+    background: var(--surface-2); border: 1px solid var(--line); border-radius: 9px;
+    padding: 8px 14px; font-size: 15px;
+  }
+  .mini.warn { color: var(--danger); border-color: var(--danger); background: transparent; }
+  .fold { display: none; }
+  .fold.open { display: block; }
+  .fold p { font-size: 18px; line-height: 1.5; margin: 0 0 10px; }
+
+  /* ---------- footer ---------- */
+  footer {
+    flex: 0 0 auto;
+    background: var(--surface); border-top: 1px solid var(--line);
+    padding: 14px;
+  }
+  .actions { max-width: 44rem; margin: 0 auto; display: flex; gap: 12px; }
+  .btn {
+    flex: 1; min-height: 62px; border-radius: 14px; border: 2px solid transparent;
+    font-size: 19px; font-weight: 700; line-height: 1.25;
+    display: inline-flex; align-items: center; justify-content: center; text-align: center;
+    padding: 10px 14px;
+  }
+  .btn.primary { background: var(--live); color: var(--bg); }
+  .btn.primary:hover { filter: brightness(1.08); }
+  .btn.quiet { background: var(--surface-2); border-color: var(--line); color: var(--ink); }
+  .btn.quiet:hover { border-color: var(--ink-soft); }
+  .btn.danger { background: transparent; border-color: var(--danger); color: var(--danger); }
+  .btn.danger:hover { background: var(--danger-soft); }
+  .btn[disabled] { opacity: .5; cursor: not-allowed; }
+  .footnote { max-width: 44rem; margin: 10px auto 0; font-size: 13px; color: var(--ink-soft); text-align: center; }
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="status">
+    <span class="dot" aria-hidden="true"></span>
+    <span class="status-text" id="statusText">Ready</span>
+  </div>
+  <button class="tool a-minus" id="smaller" title="Smaller text" aria-label="Smaller text">A</button>
+  <button class="tool a-plus" id="bigger" title="Bigger text" aria-label="Bigger text">A</button>
+  <button class="tool" id="gear" title="Settings" aria-label="Settings" aria-expanded="false">&#9881;</button>
+</header>
+
+<div class="settings" id="settings">
+  <label class="field">
+    <span>Spoken language</span>
+    <select id="lang">
+      <option value="en-NZ">English (New Zealand)</option>
+      <option value="en-AU">English (Australia)</option>
+      <option value="en-GB">English (UK)</option>
+      <option value="en-US">English (US)</option>
+      <option value="mi-NZ">Māori</option>
+      <option value="fr-FR">French</option>
+      <option value="de-DE">German</option>
+      <option value="es-ES">Spanish</option>
+    </select>
+  </label>
+  <label class="field">
+    <span>Appearance</span>
+    <select id="theme">
+      <option value="auto">Match my device</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
+  </label>
+  <button class="mini" id="viewSaved">Kept conversations</button>
+</div>
+
+<main id="main">
+  <div class="page" id="page"></div>
+</main>
+
+<footer>
+  <div class="actions" id="actions"></div>
+  <p class="footnote" id="footnote"></p>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var PREFS_KEY = "earshot:prefs";
+  var SAVED_KEY = "earshot:saved";
+
+  function loadJSON(key, fallback) {
+    try {
+      var raw = localStorage.getItem(key);
+      return raw ? JSON.parse(raw) : fallback;
+    } catch (e) { return fallback; }
+  }
+  function saveJSON(key, value) {
+    try { localStorage.setItem(key, JSON.stringify(value)); return true; }
+    catch (e) { return false; }
+  }
+
+  var prefs = loadJSON(PREFS_KEY, {}) || {};
+  if (typeof prefs.size !== "number") prefs.size = 30;
+  if (!prefs.lang) prefs.lang = "en-NZ";
+  if (!prefs.theme) prefs.theme = "auto";
+
+  var header = document.getElementById("header");
+  var statusText = document.getElementById("statusText");
+  var page = document.getElementById("page");
+  var main = document.getElementById("main");
+  var actions = document.getElementById("actions");
+  var footnote = document.getElementById("footnote");
+  var settings = document.getElementById("settings");
+  var gear = document.getElementById("gear");
+  var langSel = document.getElementById("lang");
+  var themeSel = document.getElementById("theme");
+
+  function applyPrefs() {
+    document.documentElement.style.setProperty("--ts", prefs.size + "px");
+    if (prefs.theme === "auto") document.documentElement.removeAttribute("data-theme");
+    else document.documentElement.setAttribute("data-theme", prefs.theme);
+    langSel.value = prefs.lang;
+    themeSel.value = prefs.theme;
+    saveJSON(PREFS_KEY, prefs);
+  }
+
+  /* ---------------- state ---------------- */
+  var VIEW = "idle";        // idle | listening | review | saved
+  var blocks = [];          // [{ t, text }]
+  var startedAt = null;
+  var endedAt = null;
+  var lastFinalAt = 0;
+  var GAP_MS = 3000;
+  var interim = "";
+  var micBlocked = false;
+  var netProblem = false;
+  var stickToBottom = true;
+
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  var recog = null;
+  var wantListening = false;
+  var restarts = 0;
+  var restartWindowStart = 0;
+
+  /* ---------------- helpers ---------------- */
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+  function clockTime(ms) {
+    try { return new Date(ms).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }); }
+    catch (e) { return ""; }
+  }
+  function fullDate(ms) {
+    try {
+      return new Date(ms).toLocaleString([], {
+        weekday: "short", day: "numeric", month: "short", hour: "numeric", minute: "2-digit"
+      });
+    } catch (e) { return ""; }
+  }
+  function joinBlocks(list) {
+    return (list || []).map(function (b) { return b.text; }).join(" ");
+  }
+  function wordCount(text) {
+    var t = (text || "").trim();
+    return t ? t.split(/\s+/).length : 0;
+  }
+  function durationLabel(a, b) {
+    var secs = Math.max(0, Math.round(((b || Date.now()) - a) / 1000));
+    if (secs < 60) return secs + " sec";
+    var mins = Math.round(secs / 60);
+    return mins + (mins === 1 ? " min" : " mins");
+  }
+  function setStatus(text, mode) {
+    statusText.textContent = text;
+    header.classList.toggle("listening", mode === "listening" || mode === "hearing");
+    header.classList.toggle("hearing", mode === "hearing");
+  }
+
+  /* ---------------- speech recognition ---------------- */
+  // One recognizer for the life of the page. iOS plays a chime every time a
+  // new one is constructed, so it is built once and reused.
+  function getRecognizer() {
+    if (recog) return recog;
+    var r = new SR();
+    recog = r;
+    r.continuous = true;
+    r.interimResults = true;
+    r.lang = prefs.lang;
+    r.maxAlternatives = 1;
+
+    r.onresult = function (ev) {
+      var pending = "";
+      for (var i = ev.resultIndex; i < ev.results.length; i++) {
+        var res = ev.results[i];
+        var chunk = (res[0] && res[0].transcript) || "";
+        if (res.isFinal) addFinal(chunk);
+        else pending += chunk;
+      }
+      interim = pending.trim();
+      renderTranscript();
+    };
+
+    r.onspeechstart = function () { if (wantListening) setStatus("Hearing speech", "hearing"); };
+    r.onspeechend = function () { if (wantListening) setStatus("Listening", "listening"); };
+
+    r.onerror = function (ev) {
+      if (ev.error === "not-allowed" || ev.error === "service-not-allowed") {
+        micBlocked = true;
+        stopListening();
+        render();
+      } else if (ev.error === "network") {
+        netProblem = true;
+        render();
+      }
+      // "no-speech" and "aborted" are normal; onend restarts us.
+    };
+
+    r.onend = function () {
+      if (!wantListening) return;
+      var now = Date.now();
+      if (now - restartWindowStart > 10000) { restartWindowStart = now; restarts = 0; }
+      restarts++;
+      if (restarts > 25) {
+        wantListening = false;
+        setStatus("Stopped — tap resume", "");
+        render();
+        return;
+      }
+      try { r.start(); } catch (e) { /* already starting */ }
+    };
+
+    return r;
+  }
+
+  function addFinal(chunk) {
+    var text = chunk.replace(/\s+/g, " ").trim();
+    if (!text) return;
+    var now = Date.now();
+    var last = blocks[blocks.length - 1];
+    if (last && now - lastFinalAt < GAP_MS) {
+      last.text = (last.text + " " + text).replace(/\s+/g, " ");
+    } else {
+      blocks.push({ t: now, text: text });
+    }
+    lastFinalAt = now;
+  }
+
+  function startListening() {
+    if (!SR) return;
+    micBlocked = false;
+    netProblem = false;
+    if (!blocks.length) { startedAt = Date.now(); endedAt = null; }
+    wantListening = true;
+    restarts = 0;
+    restartWindowStart = Date.now();
+    var r = getRecognizer();
+    r.lang = prefs.lang;
+    try { r.start(); } catch (e) { /* already running */ }
+    VIEW = "listening";
+    setStatus("Listening", "listening");
+    stickToBottom = true;
+    render();
+  }
+
+  function stopListening() {
+    wantListening = false;
+    if (recog) { try { recog.stop(); } catch (e) {} }
+    if (interim) { addFinal(interim); interim = ""; }
+    setStatus("Paused", "");
+  }
+
+  /* ---------------- keep / delete ---------------- */
+  function keepConversation() {
+    var list = loadJSON(SAVED_KEY, []) || [];
+    list.unshift({
+      id: String(Date.now()),
+      startedAt: startedAt,
+      endedAt: endedAt || Date.now(),
+      blocks: blocks.slice()
+    });
+    if (list.length > 60) list = list.slice(0, 60);
+    var ok = saveJSON(SAVED_KEY, list);
+    resetConversation();
+    VIEW = "saved";
+    render();
+    if (!ok) {
+      page.insertBefore(
+        el("p", "notice", "This browser would not let the conversation be stored."),
+        page.firstChild
+      );
+    }
+  }
+
+  function deleteConversation() {
+    resetConversation();
+    VIEW = "idle";
+    render();
+  }
+
+  function resetConversation() {
+    blocks = [];
+    interim = "";
+    startedAt = null;
+    endedAt = null;
+    lastFinalAt = 0;
+    setStatus("Ready", "");
+  }
+
+  /* ---------------- rendering ---------------- */
+  function renderTranscript() {
+    if (VIEW !== "listening") return;
+    var wrap = document.getElementById("stream");
+    if (!wrap) { render(); return; }
+    wrap.innerHTML = "";
+    blocks.forEach(function (b) {
+      var p = el("p", "block");
+      p.appendChild(el("span", "time", clockTime(b.t)));
+      p.appendChild(document.createTextNode(b.text));
+      wrap.appendChild(p);
+    });
+    wrap.appendChild(el("p", "live", interim));
+    if (stickToBottom) main.scrollTop = main.scrollHeight;
+  }
+
+  function noticeEl(title, body) {
+    var n = el("div", "notice");
+    n.appendChild(el("strong", null, title));
+    n.appendChild(document.createTextNode(body));
+    return n;
+  }
+
+  function micNotice() {
+    return noticeEl(
+      "The microphone was blocked",
+      "Allow the microphone for this page, then start again. If there was no prompt, open this page in its " +
+      "own browser tab — a page shown inside another page is often refused the microphone."
+    );
+  }
+
+  function render() {
+    page.innerHTML = "";
+    actions.innerHTML = "";
+    footnote.textContent = "";
+
+    if (!SR) {
+      page.appendChild(noticeEl(
+        "This browser cannot listen",
+        "Live captioning needs Chrome or Edge on a computer, Safari on iPhone or iPad, or Chrome on Android. " +
+        "Firefox does not provide the speech recognition this page relies on."
+      ));
+      return;
+    }
+
+    if (VIEW === "idle") return renderIdle();
+    if (VIEW === "listening") return renderListening();
+    if (VIEW === "review") return renderReview();
+    if (VIEW === "saved") return renderSaved();
+  }
+
+  function renderIdle() {
+    if (micBlocked) page.appendChild(micNotice());
+    var box = el("div", "empty");
+    box.appendChild(el("h1", null, "Let them speak. Read it here."));
+    box.appendChild(el("p", null,
+      "Start listening, then put the phone between you and whoever is talking. Their words appear below in " +
+      "large print as they are said."));
+    box.appendChild(el("p", null,
+      "When you finish, you can read the whole conversation back, then keep it or throw it away."));
+    page.appendChild(box);
+
+    var start = el("button", "btn primary", "Start listening");
+    start.onclick = startListening;
+    actions.appendChild(start);
+
+    var saved = (loadJSON(SAVED_KEY, []) || []).length;
+    if (saved) {
+      var view = el("button", "btn quiet", saved === 1 ? "1 kept conversation" : saved + " kept conversations");
+      view.onclick = function () { VIEW = "saved"; render(); };
+      actions.appendChild(view);
+    }
+    footnote.textContent = "Transcripts stay in this browser, on this phone.";
+  }
+
+  function renderListening() {
+    if (micBlocked) page.appendChild(micNotice());
+    if (netProblem) page.appendChild(noticeEl(
+      "The connection dropped",
+      "Speech recognition needs the internet. Check the connection — listening will pick up again by itself."
+    ));
+
+    var stream = el("div");
+    stream.id = "stream";
+    page.appendChild(stream);
+
+    var jump = el("button", "jump", "Jump to latest");
+    jump.id = "jump";
+    jump.onclick = function () {
+      stickToBottom = true;
+      main.scrollTop = main.scrollHeight;
+      jump.classList.remove("show");
+    };
+    page.appendChild(jump);
+
+    renderTranscript();
+
+    if (wantListening) {
+      var pause = el("button", "btn quiet", "Pause");
+      pause.onclick = function () { stopListening(); render(); };
+      actions.appendChild(pause);
+    } else {
+      var resume = el("button", "btn quiet", "Resume listening");
+      resume.onclick = startListening;
+      actions.appendChild(resume);
+    }
+
+    var finish = el("button", "btn primary", "End conversation");
+    finish.onclick = function () {
+      stopListening();
+      endedAt = Date.now();
+      VIEW = "review";
+      stickToBottom = false;
+      render();
+      main.scrollTop = 0;
+    };
+    if (!blocks.length && !interim) finish.disabled = true;
+    actions.appendChild(finish);
+
+    footnote.textContent = "A long silence starts a new paragraph.";
+  }
+
+  function renderReview() {
+    var text = joinBlocks(blocks);
+    page.appendChild(el("h2", null, "Conversation ended"));
+    page.appendChild(el("p", "meta",
+      fullDate(startedAt || Date.now()) + " · " + durationLabel(startedAt || Date.now(), endedAt) +
+      " · " + wordCount(text) + " words"));
+
+    if (!blocks.length) {
+      page.appendChild(el("p", "meta", "Nothing was captured."));
+    }
+    blocks.forEach(function (b) {
+      var p = el("p", "block");
+      p.appendChild(el("span", "time", clockTime(b.t)));
+      p.appendChild(document.createTextNode(b.text));
+      page.appendChild(p);
+    });
+
+    var keep = el("button", "btn primary", "Keep");
+    keep.onclick = keepConversation;
+    keep.disabled = !blocks.length;
+
+    var del = el("button", "btn danger", "Delete");
+    del.onclick = deleteConversation;
+
+    actions.appendChild(keep);
+    actions.appendChild(del);
+    footnote.textContent = "Keep saves it on this phone. Delete throws the transcript away for good.";
+  }
+
+  function renderSaved() {
+    var list = loadJSON(SAVED_KEY, []) || [];
+    page.appendChild(el("h2", null, list.length ? "Kept conversations" : "Nothing kept yet"));
+    if (!list.length) {
+      page.appendChild(el("p", "meta", "Conversations you choose to keep will be listed here."));
+    }
+
+    list.forEach(function (item) {
+      var card = el("div", "saved-item");
+      card.appendChild(el("h3", null, fullDate(item.startedAt)));
+      var text = joinBlocks(item.blocks);
+      card.appendChild(el("p", "snip",
+        durationLabel(item.startedAt, item.endedAt) + " · " + wordCount(text) + " words — " +
+        text.slice(0, 120) + (text.length > 120 ? "…" : "")));
+
+      var full = el("div", "fold");
+      (item.blocks || []).forEach(function (b) {
+        full.appendChild(el("p", null, clockTime(b.t) + " — " + b.text));
+      });
+
+      var acts = el("div", "saved-actions");
+
+      var open = el("button", "mini", "Read it");
+      open.onclick = function () {
+        var isOpen = full.classList.toggle("open");
+        open.textContent = isOpen ? "Close" : "Read it";
+      };
+
+      var copy = el("button", "mini", "Copy text");
+      copy.onclick = function () {
+        if (!navigator.clipboard) { copy.textContent = "Not available"; return; }
+        navigator.clipboard.writeText(text).then(function () {
+          copy.textContent = "Copied";
+          setTimeout(function () { copy.textContent = "Copy text"; }, 1800);
+        }).catch(function () { copy.textContent = "Could not copy"; });
+      };
+
+      var drop = el("button", "mini warn", "Delete");
+      drop.onclick = function () {
+        if (drop.dataset.armed !== "1") {
+          drop.dataset.armed = "1";
+          drop.textContent = "Tap again to delete";
+          setTimeout(function () {
+            if (drop.dataset.armed === "1") { drop.dataset.armed = ""; drop.textContent = "Delete"; }
+          }, 4000);
+          return;
+        }
+        var rest = (loadJSON(SAVED_KEY, []) || []).filter(function (x) { return x.id !== item.id; });
+        saveJSON(SAVED_KEY, rest);
+        render();
+      };
+
+      acts.appendChild(open);
+      acts.appendChild(copy);
+      acts.appendChild(drop);
+      card.appendChild(acts);
+      card.appendChild(full);
+      page.appendChild(card);
+    });
+
+    var back = el("button", "btn primary", "Start a new conversation");
+    back.onclick = function () { startListening(); };
+    actions.appendChild(back);
+
+    var home = el("button", "btn quiet", "Back");
+    home.onclick = function () { VIEW = "idle"; render(); };
+    actions.appendChild(home);
+  }
+
+  /* ---------------- wiring ---------------- */
+  document.getElementById("bigger").onclick = function () {
+    prefs.size = Math.min(72, prefs.size + 4); applyPrefs();
+  };
+  document.getElementById("smaller").onclick = function () {
+    prefs.size = Math.max(18, prefs.size - 4); applyPrefs();
+  };
+  gear.onclick = function () {
+    var open = settings.classList.toggle("open");
+    gear.setAttribute("aria-expanded", open ? "true" : "false");
+  };
+  langSel.onchange = function () {
+    prefs.lang = langSel.value;
+    applyPrefs();
+    if (wantListening) { stopListening(); startListening(); }
+  };
+  themeSel.onchange = function () { prefs.theme = themeSel.value; applyPrefs(); };
+  document.getElementById("viewSaved").onclick = function () {
+    settings.classList.remove("open");
+    gear.setAttribute("aria-expanded", "false");
+    if (VIEW === "listening" && blocks.length) return;
+    VIEW = "saved";
+    render();
+  };
+
+  main.addEventListener("scroll", function () {
+    var atBottom = main.scrollHeight - main.scrollTop - main.clientHeight < 60;
+    stickToBottom = atBottom;
+    var jump = document.getElementById("jump");
+    if (jump) jump.classList.toggle("show", !atBottom);
+  });
+
+  window.addEventListener("beforeunload", function (e) {
+    if (blocks.length && VIEW !== "saved") { e.preventDefault(); e.returnValue = ""; }
+  });
+
+  applyPrefs();
+  setStatus("Ready", "");
+  render();
+})();
+</script>
+</body>
+</html>
